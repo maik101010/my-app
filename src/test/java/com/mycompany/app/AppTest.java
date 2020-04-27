@@ -89,29 +89,29 @@ public class AppTest {
 		assertNotNull(UsersData.toViewUsers(1));
 	}
 
-	@Test
-	public void dataBaseConnectionTest(){
-		DatabaseConnectionInfo connectionInfo = DatabaseConnectionInfo
-				.builder()
-				.username("root")
-				.databaseType(DatabaseType.MYSQL)
-				.url("jdbc:mysql://localhost/test_automation")
-				.password("my-secret-pw")
-				.entityNames(Stream.of(Example.class)
-				.map(Class::getName)
-				.collect(Collectors.toList()))
-				.build();
-		Actor michael = Actor.named("michael");
-		// Damos la habilidad al actor
-		michael.can(InteractWithDb.using(connectionInfo));
-
-		EntityManager entityManager = InteractWithDb.as(michael).getManager();
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Example> criteriaQuery =criteriaBuilder.createQuery(Example.class);
-		Root<Example> exampleRoot = criteriaQuery.from(Example.class);
-		Example exampleResult = entityManager.createQuery(criteriaQuery.select(exampleRoot)).getSingleResult();
-		System.out.println(exampleResult);
-//		Assert.assertNotNull(exampleResult);
-	}
+//	@Test
+//	public void dataBaseConnectionTest(){
+//		DatabaseConnectionInfo connectionInfo = DatabaseConnectionInfo
+//				.builder()
+//				.username("root")
+//				.databaseType(DatabaseType.MYSQL)
+//				.url("jdbc:mysql://localhost/test_automation")
+//				.password("my-secret-pw")
+//				.entityNames(Stream.of(Example.class)
+//				.map(Class::getName)
+//				.collect(Collectors.toList()))
+//				.build();
+//		Actor michael = Actor.named("michael");
+//		// Damos la habilidad al actor
+//		michael.can(InteractWithDb.using(connectionInfo));
+//
+//		EntityManager entityManager = InteractWithDb.as(michael).getManager();
+//		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+//		CriteriaQuery<Example> criteriaQuery =criteriaBuilder.createQuery(Example.class);
+//		Root<Example> exampleRoot = criteriaQuery.from(Example.class);
+//		Example exampleResult = entityManager.createQuery(criteriaQuery.select(exampleRoot)).getSingleResult();
+//		System.out.println(exampleResult);
+////		Assert.assertNotNull(exampleResult);
+//	}
 
 }
