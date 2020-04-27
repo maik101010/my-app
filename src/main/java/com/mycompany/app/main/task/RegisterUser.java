@@ -12,13 +12,13 @@ import com.mycompany.app.main.model.UserRegisterUpdate;
 
 public class RegisterUser implements Task {
 	
-	private final Object userInfo;
+	private final UserRegisterUpdate userInfo;
 
-    public RegisterUser(Object userInfo) {
+    public RegisterUser(UserRegisterUpdate userInfo) {
         this.userInfo = userInfo;
     }
 
-    public static Performable withInfo(Object userInfo) {
+    public static Performable withInfo(UserRegisterUpdate userInfo) {
         return instrumented(RegisterUser.class, userInfo);
     }
 

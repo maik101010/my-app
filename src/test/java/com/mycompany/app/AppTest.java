@@ -2,6 +2,12 @@ package com.mycompany.app;
 
 import static org.junit.Assert.assertNotNull;
 
+import com.mycompany.app.main.abilities.InteractWithDb;
+import com.mycompany.app.main.database.DatabaseConnectionInfo;
+import com.mycompany.app.main.database.DatabaseType;
+import com.mycompany.app.main.database.entity.Example;
+import org.jruby.RubyProcess;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -21,6 +27,14 @@ import com.mycompany.app.main.task.UpdateUser;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.rest.abiities.CallAnApi;
+
+import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -29,7 +43,6 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 public class AppTest {
 	private static String REST_API_URL = "https://reqres.in/api";
 	private static int STATUS_CODE_200 = 200;
-//	private static int STATUS_CODE_201 = 201;
 
 	@Test
 	public void getUsersTest() {
@@ -74,6 +87,31 @@ public class AppTest {
 		Actor michael = Actor.named("michael el trainer").whoCan(CallAnApi.at(REST_API_URL));
 		michael.has(UsersData.toViewUsers(1));
 		assertNotNull(UsersData.toViewUsers(1));
+	}
+
+	@Test
+	public void dataBaseConnectionTest(){
+		DatabaseConnectionInfo connectionInfo = DatabaseConnectionInfo
+				.builder()
+				.username("root")
+				.databaseType(DatabaseType.MYSQL)
+				.url("jdbc:mysql://localhost/test_automation")
+				.password("my-secret-pw")
+				.entityNames(Stream.of(Example.class)
+				.map(Class::getName)
+				.collect(Collectors.toList()))
+				.build();
+		Actor michael = Actor.named("michael");
+		// Damos la habilidad al actor
+		michael.can(InteractWithDb.using(connectionInfo));
+
+		EntityManager entityManager = InteractWithDb.as(michael).getManager();
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Example> criteriaQuery =criteriaBuilder.createQuery(Example.class);
+		Root<Example> exampleRoot = criteriaQuery.from(Example.class);
+		Example exampleResult = entityManager.createQuery(criteriaQuery.select(exampleRoot)).getSingleResult();
+		System.out.println(exampleResult);
+		Assert.assertNotNull(exampleResult);
 	}
 
 }

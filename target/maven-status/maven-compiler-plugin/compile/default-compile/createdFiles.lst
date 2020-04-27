@@ -1,0 +1,16 @@
+com\mycompany\app\main\interactions\Post.class
+com\mycompany\app\main\task\GetUser.class
+com\mycompany\app\main\task\RegisterUser.class
+com\mycompany\app\main\model\UserToken.class
+com\mycompany\app\App.class
+com\mycompany\app\main\task\UpdateUser.class
+com\mycompany\app\main\questions\ResponseCode.class
+com\mycompany\app\main\model\Datum.class
+com\mycompany\app\main\questions\GetUsersQuestion.class
+com\mycompany\app\main\model\UserRegisterUpdate.class
+com\mycompany\app\main\questions\GetUserUpdateQuestion.class
+com\mycompany\app\main\stepdefinitions\RegisterUserStepDefinitions.class
+com\mycompany\app\main\facts\UsersData.class
+com\mycompany\app\main\questions\GetTokenQuestion.class
+com\mycompany\app\main\model\User.class
+com\mycompany\app\main\model\UserResponseUpdate.class
