@@ -1,1 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Registro de usuarios" skipped="0" tests="1" time="8.52" timestamp="2020-04-28 08:25:40"><testcase name="Registro exitoso de usuario"/></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="Registro de usuarios" skipped="0" tests="1" time="8.2" timestamp="2020-05-04 10:34:09"><testcase name="Registro exitoso de usuario"><failure message="&#10;Expected: &quot;QpwL5tke4Pnpja7X6a&quot;&#10;     but: was &quot;QpwL5tke4Pnpja7X6&quot;" type="java.lang.AssertionError">
+Expected: "QpwL5tke4Pnpja7X6a"
+     but: was "QpwL5tke4Pnpja7X6"</failure><system-err>
+Expected: "QpwL5tke4Pnpja7X6a"
+     but: was "QpwL5tke4Pnpja7X6"&#13;
+com.mycompany.app.main.stepdefinitions.RegisterUserStepDefinitions.elDebeObtenerUnaCuentaVirtualParaPoderIngresarCuandoLoRequiera(RegisterUserStepDefinitions.java:44)&#13;
+✽.el debe obtener una cuenta virtual para poder ingresar cuando lo requiera(C:/Users/michael.garcia/Documents/SerenityProjects/my-app/src/test/resources/features/register_user.feature:11)&#13;
+</system-err></testcase></testsuite>
