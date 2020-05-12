@@ -1,5 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"App test","Register user test","SUCCESS","2020-05-01T10:04:39.588-05:00[America/Bogota]","0.0","8.52"
-"App test","Get users test","SUCCESS","2020-05-01T10:04:48.328-05:00[America/Bogota]","0.0","0.72"
-"App test","Fact test","SUCCESS","2020-05-01T10:04:49.052-05:00[America/Bogota]","0.0","1.18"
-"App test","Update user test","SUCCESS","2020-05-01T10:04:50.231-05:00[America/Bogota]","0.0","0.89"

@@ -5,6 +5,8 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.rest.interactions.Get;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
@@ -13,7 +15,7 @@ public class GetUser implements Task {
 	public GetUser(int page) {
 		this.page = page;
 	}
-	
+
 	public static Performable fromPage(int page) {
 		return instrumented(GetUser.class, page);
 	}
