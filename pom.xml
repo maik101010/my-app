@@ -16,7 +16,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <serenity.version>2.0.9</serenity.version>
         <serenity.maven.version>2.0.9</serenity.maven.version>
-        <hibernate.version>5.4.1.Final</hibernate.version>
+        <hibernate.version>5.4.24.Final</hibernate.version>
         <serenity.cucumber.version>1.9.19</serenity.cucumber.version>
         <encoding>UTF-8</encoding>
         <parallel.tests>4</parallel.tests>
